@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from etaxarchivemessagebox.selenium.browser import Browser
+from seleniumlibraries.browser import Browser
 
 
 # Reason: This is a base class. pylint: disable=too-few-public-methods
