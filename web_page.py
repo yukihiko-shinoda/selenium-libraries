@@ -1,3 +1,5 @@
+"""The module of web page."""
+
 from logging import getLogger
 
 from seleniumlibraries.browser import Browser
