@@ -58,13 +58,12 @@ class Browser:
         # Reason: URL too long.
         # - herokuでselenium利用時にクラッシュする場合の解決方法 #Python - Qiita
         #   https://qiita.com/kozasa/items/8a9d181e43fa0a85f6e5#%EF%BC%91-selenium%E3%81%AE%E5%BC%95%E6%95%B0%E3%81%AB%E7%9C%81%E3%83%A1%E3%83%A2%E3%83%AA%E5%8C%96%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E5%BC%95%E6%95%B0%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B)  pylint: disable=line-too-long  # noqa: E501
-        # Reason: Selenium's issue.
-        options.add_argument("--headless")  # type: ignore[no-untyped-call]
-        options.add_argument("--disable-gpu")  # type: ignore[no-untyped-call]
-        options.add_argument("--disable-dev-shm-usage")  # type: ignore[no-untyped-call]
+        options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-dev-shm-usage")
         # PDF印刷設定
-        options.add_argument("--kiosk-printing")  # type: ignore[no-untyped-call]
-        options.add_argument("--remote-debugging-port=9222")  # type: ignore[no-untyped-call]
+        options.add_argument("--kiosk-printing")
+        options.add_argument("--remote-debugging-port=9222")
         # User-Agent を設定しないと WAON のページがエラーページを表示する仕様になっていました
         # User-Agent の設定方法は次を参考にしました:
         # - Selenium User-Agent Guide: Changing and Rotating Headers
@@ -73,7 +72,7 @@ class Browser:
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
         )
-        options.add_argument(f"--user-agent={custom_user_agent}")  # type: ignore[no-untyped-call]
+        options.add_argument(f"--user-agent={custom_user_agent}")
         prefs = {
             # To download files
             "download.default_directory": str(self.DIRECTORY_DOWNLOAD),
@@ -104,7 +103,7 @@ class Browser:
     def wait_for(self, by: str, value: str, *, timeout: float | None = None) -> WebElement:
         # Reason: Certainly returns WebElement.
         wait = WebDriverWait(self.driver, timeout) if timeout else self.wait
-        return wait.until(presence_of_element_located((by, value)))  # type: ignore[no-any-return]
+        return wait.until(presence_of_element_located((by, value)))
 
     def scroll_and_click(self, by: str, value: str) -> None:
         """Scroll to element and click it."""
