@@ -2,7 +2,8 @@
 
 [![Test](https://github.com/yukihiko-shinoda/selenium-libraries/workflows/Test/badge.svg)](https://github.com/yukihiko-shinoda/selenium-libraries/actions?query=workflow%3ATest)
 [![CodeQL](https://github.com/yukihiko-shinoda/selenium-libraries/workflows/CodeQL/badge.svg)](https://github.com/yukihiko-shinoda/selenium-libraries/actions?query=workflow%3ACodeQL)
-[![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/yukihiko-shinoda/selenium-libraries)](https://codeclimate.com/github/yukihiko-shinoda/selenium-libraries)
+[![Code Coverage](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries/coverage.svg)](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries)
+[![Maintainability](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries/maintainability.svg)](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries)
 [![Dependabot](https://flat.badgen.net/github/dependabot/yukihiko-shinoda/selenium-libraries?icon=dependabot)](https://github.com/yukihiko-shinoda/selenium-libraries/security/dependabot)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/seleniumlibraries)](https://pypi.org/project/seleniumlibraries)
 [![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fyukihiko-shinoda%2Fselenium-libraries)](http://twitter.com/share?text=Selenium%20Libraries&url=https://pypi.org/project/seleniumlibraries/&hashtags=python)
