@@ -1,0 +1,104 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
+{
+	"name": "Existing Docker Compose (Extend)",
+
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+	"dockerComposeFile": [
+		"../compose.yml",
+		"compose.yml"
+	],
+
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "selenium",
+
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/workspace",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment the next line if you want start specific services in your Docker Compose config.
+	// "runServices": [],
+
+	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+	// "shutdownAction": "none",
+
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "cat /etc/os-release",
+
+	// Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Anthropic.claude-code",
+                // To reduce the number of Google searches
+                "GitHub.copilot",
+                // To reduce spelling mistakes
+                "streetsidesoftware.code-spell-checker",
+                // For syntax checking of pyproject.toml
+                "tamasfe.even-better-toml",
+                // To display Python code formatting / lint results in the code
+                "charliermarsh.ruff",
+                // To enable syntax checking and navigation for Python code in VS Code
+                "ms-python.python",
+                // To display Python lint results in the code
+                "ms-python.flake8",
+                // To display Python type checking results in the code
+                "ms-python.mypy-type-checker",
+                // To display Python lint results in the code
+                "ms-python.pylint",
+                // To display Python security check results in the code
+                "pycqa.bandit-pycqa",
+                // To run docformatter on Python code when saving
+                "emeraldwalk.RunOnSave"
+            ]
+        },
+        "settings": {
+            "[python]": {
+                // To use Ruff as the default formatter for Python code
+                "editor.defaultFormatter": "charliermarsh.ruff",
+                // To run all possible code actions on save for Python files
+                "editor.codeActionsOnSave": {
+                    "source.fixAll": "explicit",
+                    "source.organizeImports": "explicit"
+                },
+                // To automatically format Python files on save
+                "editor.formatOnSave": true
+            },
+            // To run Bandit with pyproject.toml configuration using pycqa.bandit-pycqa extension
+            "bandit.args": [
+                "--configfile",
+                "pyproject.toml"
+            ],
+            // To register project-specific terms in a separate file (not settings.json)
+            // For streetsidesoftware/vscode-spell-checker: A simple source code spell checker for code
+            //   https://github.com/streetsidesoftware/vscode-spell-checker?tab=readme-ov-file#project--workspace-dictionary-using-vs-code-settings
+            "cSpell.customDictionaries": {
+                "project-words": {
+                    "name": "project-words",
+                    "path": "${workspaceRoot}/project-words.txt",
+                    "description": "Words used in this project",
+                    "addWords": true
+                }
+            },
+            // To run docformatter on Python files when saving
+            "emeraldwalk.runonsave": {
+                "commands": [
+                    {
+                        "match": ".*\\.py",
+                        "cmd": "uv run docformatter --in-place ${file}"
+                    }
+                ]
+            }
+        }
+    },
+	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root"
+}

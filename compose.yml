@@ -1,0 +1,22 @@
+services:
+  selenium:
+    build: .
+    cap_add:
+      # Without this, Python can't instantiate selenium.webdriver.Chrome:
+      #   selenium.common.exceptions.SessionNotCreatedException:
+      #     Message: session not created:
+      #       probably user data directory is already in use,
+      #       please specify a unique value for --user-data-dir argument,
+      #       or don't use --user-data-dir; For documentation on this error,
+      #       please visit:
+      #         https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+      # - Answer: permissions - Chrome under Docker: CAP_SYS_ADMIN vs privileged? - Server Fault
+      #   https://serverfault.com/a/824920/571473
+      # And NET_ADMIN didn't work
+      - SYS_ADMIN
+    image: futureys/selenium-libraries:development
+    volumes:
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - .:/workspace:cached
+      - /workspace/.selenium-cache
+      - /workspace/.venv
