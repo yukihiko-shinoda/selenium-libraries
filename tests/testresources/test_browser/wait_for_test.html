@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait For Test</title>
+    <script>
+        setTimeout(() => {
+            const div = document.createElement('div');
+            div.id = 'delayed-element';
+            div.textContent = 'This element appears after 2 seconds';
+            document.body.appendChild(div);
+        }, 2000);
+    </script>
+</head>
+<body>
+    <h1>Wait For Test Page</h1>
+    <p>This page tests waiting for elements to appear.</p>
+    <div id="immediate-element">This element is immediately available</div>
+</body>
+</html>

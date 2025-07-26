@@ -1,16 +1,27 @@
 """The module about browser."""
 
+from __future__ import annotations
+
 import base64
 import getpass
-from pathlib import Path
 import time
-from types import TracebackType
-from typing import Any, Optional
+from pathlib import Path
+from typing import TYPE_CHECKING
+from typing import Any
 
-from selenium.webdriver import ActionChains, Chrome, ChromeOptions
-from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver import ActionChains
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 from selenium.webdriver.support.wait import WebDriverWait
+from typing_extensions import Self
+
+if TYPE_CHECKING:
+    from types import TracebackType
+
+    from selenium.webdriver.remote.webelement import WebElement
+
+__all__ = ["Browser"]
 
 
 class DownloadWaiter:
@@ -57,7 +68,7 @@ class Browser:
         options = ChromeOptions()
         # Reason: URL too long.
         # - herokuでselenium利用時にクラッシュする場合の解決方法 #Python - Qiita
-        #   https://qiita.com/kozasa/items/8a9d181e43fa0a85f6e5#%EF%BC%91-selenium%E3%81%AE%E5%BC%95%E6%95%B0%E3%81%AB%E7%9C%81%E3%83%A1%E3%83%A2%E3%83%AA%E5%8C%96%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E5%BC%95%E6%95%B0%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B)  pylint: disable=line-too-long  # noqa: E501
+        #   https://qiita.com/kozasa/items/8a9d181e43fa0a85f6e5#%EF%BC%91-selenium%E3%81%AE%E5%BC%95%E6%95%B0%E3%81%AB%E7%9C%81%E3%83%A1%E3%83%A2%E3%83%AA%E5%8C%96%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E5%BC%95%E6%95%B0%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B)  pylint: disable=line-too-long
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-dev-shm-usage")
@@ -89,14 +100,14 @@ class Browser:
         self.driver.set_window_size(480, 600)
         self.wait = WebDriverWait(self.driver, 10)
 
-    def __enter__(self) -> "Browser":
+    def __enter__(self) -> Self:
         return self
 
     def __exit__(
         self,
-        _exc_type: Optional[type[BaseException]],
-        _exc_value: Optional[BaseException],
-        _traceback: Optional[TracebackType],
+        _exc_type: type[BaseException] | None,
+        _exc_value: BaseException | None,
+        _traceback: TracebackType | None,
     ) -> None:
         self.driver.quit()
 
