@@ -1,6 +1,8 @@
-"""The package about Selenium library."""
+"""The module about element."""
 
 from selenium.webdriver.remote.webelement import WebElement
+
+__all__ = ["get_text"]
 
 
 def get_text(element: WebElement) -> str:
