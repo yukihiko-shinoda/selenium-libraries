@@ -128,6 +128,13 @@ class TestBrowser:
         """Test Browser has correct download directory."""
         assert Path("/workspace/downloads") == Browser.DIRECTORY_DOWNLOAD
 
+    def test_browser_with_additional_arguments(self) -> None:
+        """Test Browser with additional Chrome arguments."""
+        additional_args = ["--disable-extensions"]
+        with Browser(additional_arguments=additional_args) as browser:
+            assert browser is not None
+            assert browser.driver is not None
+
     @pytest.mark.parametrize("html_file", [Path("test_browser/wait_for_test.html")])
     def test_browser_wait_for_with_custom_timeout(self, common_html_loaded_browser: Browser) -> None:
         """Test Browser wait_for method with custom timeout."""

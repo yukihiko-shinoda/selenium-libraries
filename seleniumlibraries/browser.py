@@ -58,7 +58,7 @@ class Browser:
 
     DIRECTORY_DOWNLOAD = Path("/workspace/downloads")
 
-    def __init__(self) -> None:
+    def __init__(self, *, additional_arguments: list[str] | None = None) -> None:
         if getpass.getuser() == "root":
             msg = (
                 "Selenium can't be run as root and shouldn't be used with option: `--no-sandbox` for security. "
@@ -95,6 +95,8 @@ class Browser:
             "plugins.always_open_pdf_externally": True,
             # "printing.print_preview_sticky_settings.appState": json.dumps(appState),
         }
+        for argument in additional_arguments or []:
+            options.add_argument(argument)
         options.add_experimental_option("prefs", prefs)
         self.driver = Chrome(options=options)
         self.driver.set_window_size(480, 600)
