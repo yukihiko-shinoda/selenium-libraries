@@ -16,7 +16,9 @@
     "allow": [
       "Bash(uv run invoke lint:*)",
       "Bash(sudo -u selenium uv run pytest:*)",
-      "Bash(sudo -u selenium uv run invoke test:*)"
+      "Bash(sudo -u selenium uv run invoke test:*)",
+      "Edit(tests/**)",
+      "Edit(seleniumlibraries/**)"
     ],
     "deny": [
       "Bash(git commit:*)",
