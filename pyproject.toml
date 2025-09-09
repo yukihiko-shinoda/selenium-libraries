@@ -60,7 +60,7 @@ dev = [
 
 [project]
 name = "seleniumlibraries"
-version = "0.1.0"
+version = "0.2.0"
 description = "The Selenium libraries to reduce codes for Python."
 readme = "README.md"
 requires-python = ">=3.7"
@@ -109,7 +109,7 @@ repository = "https://github.com/yukihiko-shinoda/selenium-libraries"
 skips = ["tests/*"]
 
 [tool.bumpversion]
-current_version = "0.1.0"
+current_version = "0.2.0"
 commit = true
 tag = true
 
