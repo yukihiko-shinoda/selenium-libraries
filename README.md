@@ -1,7 +1,7 @@
 # Selenium Libraries
 
 [![Test](https://github.com/yukihiko-shinoda/selenium-libraries/workflows/Test/badge.svg)](https://github.com/yukihiko-shinoda/selenium-libraries/actions?query=workflow%3ATest)
-[![CodeQL](https://github.com/yukihiko-shinoda/selenium-libraries/workflows/CodeQL/badge.svg)](https://github.com/yukihiko-shinoda/selenium-libraries/actions?query=workflow%3ACodeQL)
+[![CodeQL](https://github.com/yukihiko-shinoda/selenium-libraries/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/yukihiko-shinoda/selenium-libraries/actions/workflows/github-code-scanning/codeql)
 [![Code Coverage](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries/coverage.svg)](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries)
 [![Maintainability](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries/maintainability.svg)](https://qlty.sh/gh/yukihiko-shinoda/projects/selenium-libraries)
 [![Dependabot](https://flat.badgen.net/github/dependabot/yukihiko-shinoda/selenium-libraries?icon=dependabot)](https://github.com/yukihiko-shinoda/selenium-libraries/security/dependabot)
